@@ -1,0 +1,4 @@
+#!/bin/bash
+# Grep most recent ips and port of ufw blocks in dmesg output.
+dmesg|tr ' ' '\n'|grep -iP "DPT|SRC\="|sed "s/DPT=/:/"|sed "s/SRC=/ /"|tr -d '\n'|tr ' ' '\n'|grep "."|sort  -u|less
+exit
